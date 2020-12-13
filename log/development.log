@@ -1,0 +1,1262 @@
+  [1m[35m (25.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (97.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (98.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-13 15:16:55.469358"], ["updated_at", "2020-12-13 15:16:55.469358"]]
+  [1m[36mTRANSACTION (157.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePublishers (20180527173325)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "publishers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180527173325"]]
+  [1m[36mTRANSACTION (108.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBooks (20180527173332)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "publisher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180527173332"]]
+  [1m[36mTRANSACTION (179.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShops (20180527173336)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180527173336"]]
+  [1m[36mTRANSACTION (98.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePurchases (20180527175807)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "purchases" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shop_id" integer, "book_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_purchases_on_shop_id" ON "purchases" ("shop_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_purchases_on_book_id" ON "purchases" ("book_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180527175807"]]
+  [1m[36mTRANSACTION (166.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateStocks (20180528083456)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "stocks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shop_id" integer, "book_id" integer, "amount" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_stocks_on_shop_id" ON "stocks" ("shop_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_stocks_on_book_id" ON "stocks" ("book_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180528083456"]]
+  [1m[36mTRANSACTION (255.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2020-12-13 18:31:30 +0300
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 79.9ms | Allocations: 477)
+Completed 200 OK in 319ms (Views: 158.9ms | ActiveRecord: 0.0ms | Allocations: 4199)
+
+
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2020-12-13 18:36:23 +0300
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 18.9ms | Allocations: 314)
+Completed 200 OK in 650ms (Views: 605.0ms | ActiveRecord: 0.0ms | Allocations: 2520)
+
+
+Started GET "/publishers/:id/shops" for 127.0.0.1 at 2020-12-13 18:36:50 +0300
+Processing by PublisherController#shops as HTML
+  Parameters: {"id"=>":id"}
+  [1m[36mPublisher Load (0.7ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/publisher_controller.rb:3:in `shops'
+Completed 404 Not Found in 114ms (Views: 0.4ms | ActiveRecord: 3.4ms | Allocations: 3533)
+
+
+Started GET "/publishers/1/shops" for 127.0.0.1 at 2020-12-13 18:36:58 +0300
+Processing by PublisherController#shops as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPublisher Load (0.6ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/publisher_controller.rb:3:in `shops'
+Completed 404 Not Found in 5ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 541)
+
+
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (8.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (134.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (134.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePublishers (20180527173325)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "publishers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180527173325"]]
+  [1m[36mTRANSACTION (132.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBooks (20180527173332)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "publisher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180527173332"]]
+  [1m[36mTRANSACTION (134.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShops (20180527173336)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180527173336"]]
+  [1m[36mTRANSACTION (112.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePurchases (20180527175807)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "purchases" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shop_id" integer, "book_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_purchases_on_shop_id" ON "purchases" ("shop_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_purchases_on_book_id" ON "purchases" ("book_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180527175807"]]
+  [1m[36mTRANSACTION (111.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateStocks (20180528083456)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "stocks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shop_id" integer, "book_id" integer, "amount" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_stocks_on_shop_id" ON "stocks" ("shop_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_stocks_on_book_id" ON "stocks" ("book_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180528083456"]]
+  [1m[36mTRANSACTION (140.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-13 16:09:06.308203"], ["updated_at", "2020-12-13 16:09:06.308203"]]
+  [1m[36mTRANSACTION (115.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (8.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (7.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (154.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (123.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePublishers (20180527173325)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "publishers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180527173325"]]
+  [1m[36mTRANSACTION (115.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBooks (20180527173332)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "publisher_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180527173332"]]
+  [1m[36mTRANSACTION (119.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShops (20180527173336)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180527173336"]]
+  [1m[36mTRANSACTION (114.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePurchases (20180527175807)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "purchases" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shop_id" integer, "book_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_purchases_on_shop_id" ON "purchases" ("shop_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_purchases_on_book_id" ON "purchases" ("book_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180527175807"]]
+  [1m[36mTRANSACTION (131.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateStocks (20180528083456)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "stocks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shop_id" integer, "book_id" integer, "amount" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_stocks_on_shop_id" ON "stocks" ("shop_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_stocks_on_book_id" ON "stocks" ("book_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180528083456"]]
+  [1m[36mTRANSACTION (122.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (10.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-13 16:11:22.502788"], ["updated_at", "2020-12-13 16:11:22.502788"]]
+  [1m[36mTRANSACTION (125.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (7.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.2ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Simon & Schuster"], ["created_at", "2020-12-13 16:11:55.520043"], ["updated_at", "2020-12-13 16:11:55.520043"]]
+  [1m[36mTRANSACTION (143.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The World, the Flesh and the Devil"], ["publisher_id", 1], ["created_at", "2020-12-13 16:11:55.740239"], ["updated_at", "2020-12-13 16:11:55.740239"]]
+  [1m[36mTRANSACTION (101.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Tender Is the Night"], ["publisher_id", 1], ["created_at", "2020-12-13 16:11:55.853302"], ["updated_at", "2020-12-13 16:11:55.853302"]]
+  [1m[36mTRANSACTION (133.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Things Fall Apart"], ["publisher_id", 1], ["created_at", "2020-12-13 16:11:55.999560"], ["updated_at", "2020-12-13 16:11:55.999560"]]
+  [1m[36mTRANSACTION (106.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Toy-Waters"], ["created_at", "2020-12-13 16:11:56.137235"], ["updated_at", "2020-12-13 16:11:56.137235"]]
+  [1m[36mTRANSACTION (100.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Frami and Sons"], ["created_at", "2020-12-13 16:11:56.249684"], ["updated_at", "2020-12-13 16:11:56.249684"]]
+  [1m[36mTRANSACTION (121.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.7ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Yundt-Waters"], ["created_at", "2020-12-13 16:11:56.382472"], ["updated_at", "2020-12-13 16:11:56.382472"]]
+  [1m[36mTRANSACTION (122.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (3.0ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 1], ["book_id", 1], ["amount", 7], ["created_at", "2020-12-13 16:11:56.541721"], ["updated_at", "2020-12-13 16:11:56.541721"]]
+  [1m[36mTRANSACTION (94.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.5ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 1], ["book_id", 2], ["amount", 5], ["created_at", "2020-12-13 16:11:56.647366"], ["updated_at", "2020-12-13 16:11:56.647366"]]
+  [1m[36mTRANSACTION (113.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.9ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 1], ["book_id", 3], ["amount", 11], ["created_at", "2020-12-13 16:11:56.770432"], ["updated_at", "2020-12-13 16:11:56.770432"]]
+  [1m[36mTRANSACTION (101.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (4.8ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["amount", 3], ["created_at", "2020-12-13 16:11:56.885346"], ["updated_at", "2020-12-13 16:11:56.885346"]]
+  [1m[36mTRANSACTION (135.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (3.3ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["amount", 19], ["created_at", "2020-12-13 16:11:57.040351"], ["updated_at", "2020-12-13 16:11:57.040351"]]
+  [1m[36mTRANSACTION (105.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.7ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 3], ["book_id", 3], ["amount", 55], ["created_at", "2020-12-13 16:11:57.160855"], ["updated_at", "2020-12-13 16:11:57.160855"]]
+  [1m[36mTRANSACTION (119.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.8ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:11:57.320398"], ["updated_at", "2020-12-13 16:11:57.320398"]]
+  [1m[36mTRANSACTION (126.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (3.5ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:11:57.459922"], ["updated_at", "2020-12-13 16:11:57.459922"]]
+  [1m[36mTRANSACTION (125.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.5ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:11:57.600263"], ["updated_at", "2020-12-13 16:11:57.600263"]]
+  [1m[36mTRANSACTION (121.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.7ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:11:57.732201"], ["updated_at", "2020-12-13 16:11:57.732201"]]
+  [1m[36mTRANSACTION (147.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.7ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:11:57.890348"], ["updated_at", "2020-12-13 16:11:57.890348"]]
+  [1m[36mTRANSACTION (108.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.8ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:11:58.009858"], ["updated_at", "2020-12-13 16:11:58.009858"]]
+  [1m[36mTRANSACTION (111.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.7ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:11:58.131959"], ["updated_at", "2020-12-13 16:11:58.131959"]]
+  [1m[36mTRANSACTION (100.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (3.6ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:11:58.242509"], ["updated_at", "2020-12-13 16:11:58.242509"]]
+  [1m[36mTRANSACTION (101.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.9ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:11:58.354821"], ["updated_at", "2020-12-13 16:11:58.354821"]]
+  [1m[36mTRANSACTION (108.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (3.4ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:11:58.474532"], ["updated_at", "2020-12-13 16:11:58.474532"]]
+  [1m[36mTRANSACTION (89.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.7ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:11:58.575631"], ["updated_at", "2020-12-13 16:11:58.575631"]]
+  [1m[36mTRANSACTION (109.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (3.0ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:11:58.695580"], ["updated_at", "2020-12-13 16:11:58.695580"]]
+  [1m[36mTRANSACTION (121.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.8ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:11:58.829630"], ["updated_at", "2020-12-13 16:11:58.829630"]]
+  [1m[36mTRANSACTION (87.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.9ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:11:58.928387"], ["updated_at", "2020-12-13 16:11:58.928387"]]
+  [1m[36mTRANSACTION (110.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.7ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:11:59.050415"], ["updated_at", "2020-12-13 16:11:59.050415"]]
+  [1m[36mTRANSACTION (123.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (3.2ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:11:59.184087"], ["updated_at", "2020-12-13 16:11:59.184087"]]
+  [1m[36mTRANSACTION (132.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.6ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:11:59.328232"], ["updated_at", "2020-12-13 16:11:59.328232"]]
+  [1m[36mTRANSACTION (110.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.5ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:11:59.449384"], ["updated_at", "2020-12-13 16:11:59.449384"]]
+  [1m[36mTRANSACTION (122.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (3.0ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 3], ["book_id", 3], ["created_at", "2020-12-13 16:11:59.582921"], ["updated_at", "2020-12-13 16:11:59.582921"]]
+  [1m[36mTRANSACTION (119.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.6ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 3], ["book_id", 3], ["created_at", "2020-12-13 16:11:59.714456"], ["updated_at", "2020-12-13 16:11:59.714456"]]
+  [1m[36mTRANSACTION (110.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Harvest House"], ["created_at", "2020-12-13 16:11:59.836486"], ["updated_at", "2020-12-13 16:11:59.836486"]]
+  [1m[36mTRANSACTION (109.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Pale Kings and Princes"], ["publisher_id", 2], ["created_at", "2020-12-13 16:11:59.959522"], ["updated_at", "2020-12-13 16:11:59.959522"]]
+  [1m[36mTRANSACTION (98.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.7ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kertzmann-Fisher"], ["created_at", "2020-12-13 16:12:00.068806"], ["updated_at", "2020-12-13 16:12:00.068806"]]
+  [1m[36mTRANSACTION (109.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (3.0ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 4], ["book_id", 4], ["amount", 796], ["created_at", "2020-12-13 16:12:00.215925"], ["updated_at", "2020-12-13 16:12:00.215925"]]
+  [1m[36mTRANSACTION (108.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (4.9ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Horizon Scientific Press"], ["created_at", "2020-12-13 16:12:00.337378"], ["updated_at", "2020-12-13 16:12:00.337378"]]
+  [1m[36mTRANSACTION (102.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Taming a Sea Horse"], ["publisher_id", 3], ["created_at", "2020-12-13 16:12:00.455452"], ["updated_at", "2020-12-13 16:12:00.455452"]]
+  [1m[36mTRANSACTION (122.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kuphal-Tillman"], ["created_at", "2020-12-13 16:12:00.590236"], ["updated_at", "2020-12-13 16:12:00.590236"]]
+  [1m[36mTRANSACTION (117.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (4.4ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 5], ["book_id", 5], ["amount", 720], ["created_at", "2020-12-13 16:12:00.727694"], ["updated_at", "2020-12-13 16:12:00.727694"]]
+  [1m[36mTRANSACTION (121.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "André Deutsch"], ["created_at", "2020-12-13 16:12:00.866342"], ["updated_at", "2020-12-13 16:12:00.866342"]]
+  [1m[36mTRANSACTION (153.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Brandy of the Damned"], ["publisher_id", 4], ["created_at", "2020-12-13 16:12:01.031669"], ["updated_at", "2020-12-13 16:12:01.031669"]]
+  [1m[36mTRANSACTION (100.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.0ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kirlin-Hudson"], ["created_at", "2020-12-13 16:12:01.144661"], ["updated_at", "2020-12-13 16:12:01.144661"]]
+  [1m[36mTRANSACTION (96.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (3.1ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 6], ["book_id", 6], ["amount", 4457], ["created_at", "2020-12-13 16:12:01.255525"], ["updated_at", "2020-12-13 16:12:01.255525"]]
+  [1m[36mTRANSACTION (97.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.8ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "HMSO"], ["created_at", "2020-12-13 16:12:01.366099"], ["updated_at", "2020-12-13 16:12:01.366099"]]
+  [1m[36mTRANSACTION (129.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Terrible Swift Sword"], ["publisher_id", 5], ["created_at", "2020-12-13 16:12:01.507506"], ["updated_at", "2020-12-13 16:12:01.507506"]]
+  [1m[36mTRANSACTION (116.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Lebsack, Farrell and Kulas"], ["created_at", "2020-12-13 16:12:01.637998"], ["updated_at", "2020-12-13 16:12:01.637998"]]
+  [1m[36mTRANSACTION (111.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (3.0ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 7], ["book_id", 7], ["amount", 3999], ["created_at", "2020-12-13 16:12:01.762370"], ["updated_at", "2020-12-13 16:12:01.762370"]]
+  [1m[36mTRANSACTION (114.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Manning Publications"], ["created_at", "2020-12-13 16:12:01.888467"], ["updated_at", "2020-12-13 16:12:01.888467"]]
+  [1m[36mTRANSACTION (110.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (5.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Far From the Madding Crowd"], ["publisher_id", 6], ["created_at", "2020-12-13 16:12:02.013965"], ["updated_at", "2020-12-13 16:12:02.013965"]]
+  [1m[36mTRANSACTION (125.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Roob, Shields and Carter"], ["created_at", "2020-12-13 16:12:02.158696"], ["updated_at", "2020-12-13 16:12:02.158696"]]
+  [1m[36mTRANSACTION (123.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (4.1ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 8], ["book_id", 8], ["amount", 1710], ["created_at", "2020-12-13 16:12:02.296503"], ["updated_at", "2020-12-13 16:12:02.296503"]]
+  [1m[36mTRANSACTION (107.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Manchester University Press"], ["created_at", "2020-12-13 16:12:02.416638"], ["updated_at", "2020-12-13 16:12:02.416638"]]
+  [1m[36mTRANSACTION (120.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Daffodil Sky"], ["publisher_id", 7], ["created_at", "2020-12-13 16:12:02.549372"], ["updated_at", "2020-12-13 16:12:02.549372"]]
+  [1m[36mTRANSACTION (109.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Grady-Von"], ["created_at", "2020-12-13 16:12:02.670660"], ["updated_at", "2020-12-13 16:12:02.670660"]]
+  [1m[36mTRANSACTION (98.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.6ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 9], ["book_id", 9], ["amount", 599], ["created_at", "2020-12-13 16:12:02.783039"], ["updated_at", "2020-12-13 16:12:02.783039"]]
+  [1m[36mTRANSACTION (109.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Mandrake of Oxford"], ["created_at", "2020-12-13 16:12:02.904744"], ["updated_at", "2020-12-13 16:12:02.904744"]]
+  [1m[36mTRANSACTION (206.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Antic Hay"], ["publisher_id", 8], ["created_at", "2020-12-13 16:12:03.124811"], ["updated_at", "2020-12-13 16:12:03.124811"]]
+  [1m[36mTRANSACTION (88.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.0ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Veum, Ruecker and Kihn"], ["created_at", "2020-12-13 16:12:03.225052"], ["updated_at", "2020-12-13 16:12:03.225052"]]
+  [1m[36mTRANSACTION (155.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (4.7ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 10], ["book_id", 10], ["amount", 3852], ["created_at", "2020-12-13 16:12:03.398109"], ["updated_at", "2020-12-13 16:12:03.398109"]]
+  [1m[36mTRANSACTION (150.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.9ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Borgo Press"], ["created_at", "2020-12-13 16:12:03.565551"], ["updated_at", "2020-12-13 16:12:03.565551"]]
+  [1m[36mTRANSACTION (137.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Now Sleeps the Crimson Petal"], ["publisher_id", 9], ["created_at", "2020-12-13 16:12:03.715267"], ["updated_at", "2020-12-13 16:12:03.715267"]]
+  [1m[36mTRANSACTION (151.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Will, Bayer and Bailey"], ["created_at", "2020-12-13 16:12:03.881130"], ["updated_at", "2020-12-13 16:12:03.881130"]]
+  [1m[36mTRANSACTION (93.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.5ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 11], ["book_id", 11], ["amount", 3015], ["created_at", "2020-12-13 16:12:03.989388"], ["updated_at", "2020-12-13 16:12:03.989388"]]
+  [1m[36mTRANSACTION (117.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Applewood Books"], ["created_at", "2020-12-13 16:12:04.119906"], ["updated_at", "2020-12-13 16:12:04.119906"]]
+  [1m[36mTRANSACTION (133.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Unweaving the Rainbow"], ["publisher_id", 10], ["created_at", "2020-12-13 16:12:04.273696"], ["updated_at", "2020-12-13 16:12:04.273696"]]
+  [1m[36mTRANSACTION (97.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.7ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Conn-Stanton"], ["created_at", "2020-12-13 16:12:04.386565"], ["updated_at", "2020-12-13 16:12:04.386565"]]
+  [1m[36mTRANSACTION (142.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (3.4ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 12], ["book_id", 12], ["amount", 2564], ["created_at", "2020-12-13 16:12:04.545012"], ["updated_at", "2020-12-13 16:12:04.545012"]]
+  [1m[36mTRANSACTION (93.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.8ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Horizon Scientific Press"], ["created_at", "2020-12-13 16:12:04.653485"], ["updated_at", "2020-12-13 16:12:04.653485"]]
+  [1m[36mTRANSACTION (156.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Butter In a Lordly Dish"], ["publisher_id", 11], ["created_at", "2020-12-13 16:12:04.821451"], ["updated_at", "2020-12-13 16:12:04.821451"]]
+  [1m[36mTRANSACTION (107.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.1ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rogahn LLC"], ["created_at", "2020-12-13 16:12:04.940521"], ["updated_at", "2020-12-13 16:12:04.940521"]]
+  [1m[36mTRANSACTION (93.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (3.3ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 13], ["book_id", 13], ["amount", 1354], ["created_at", "2020-12-13 16:12:05.051409"], ["updated_at", "2020-12-13 16:12:05.051409"]]
+  [1m[36mTRANSACTION (119.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Palgrave Macmillan"], ["created_at", "2020-12-13 16:12:05.184973"], ["updated_at", "2020-12-13 16:12:05.184973"]]
+  [1m[36mTRANSACTION (108.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "A Darkling Plain"], ["publisher_id", 12], ["created_at", "2020-12-13 16:12:05.304778"], ["updated_at", "2020-12-13 16:12:05.304778"]]
+  [1m[36mTRANSACTION (123.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Harcourt Trade Publishers"], ["created_at", "2020-12-13 16:12:05.439590"], ["updated_at", "2020-12-13 16:12:05.439590"]]
+  [1m[36mTRANSACTION (114.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "A Time of Gifts"], ["publisher_id", 13], ["created_at", "2020-12-13 16:12:05.568366"], ["updated_at", "2020-12-13 16:12:05.568366"]]
+  [1m[36mTRANSACTION (112.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.0ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "McGraw Hill Financial"], ["created_at", "2020-12-13 16:12:05.715753"], ["updated_at", "2020-12-13 16:12:05.715753"]]
+  [1m[36mTRANSACTION (117.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Number the Stars"], ["publisher_id", 14], ["created_at", "2020-12-13 16:12:05.844827"], ["updated_at", "2020-12-13 16:12:05.844827"]]
+  [1m[36mTRANSACTION (101.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.8ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Hamish Hamilton"], ["created_at", "2020-12-13 16:12:05.958005"], ["updated_at", "2020-12-13 16:12:05.958005"]]
+  [1m[36mTRANSACTION (121.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Taming a Sea Horse"], ["publisher_id", 15], ["created_at", "2020-12-13 16:12:06.090926"], ["updated_at", "2020-12-13 16:12:06.090926"]]
+  [1m[36mTRANSACTION (101.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Atheneum Books"], ["created_at", "2020-12-13 16:12:06.204848"], ["updated_at", "2020-12-13 16:12:06.204848"]]
+  [1m[36mTRANSACTION (95.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "To Your Scattered Bodies Go"], ["publisher_id", 16], ["created_at", "2020-12-13 16:12:06.312158"], ["updated_at", "2020-12-13 16:12:06.312158"]]
+  [1m[36mTRANSACTION (110.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "HarperCollins"], ["created_at", "2020-12-13 16:12:06.433962"], ["updated_at", "2020-12-13 16:12:06.433962"]]
+  [1m[36mTRANSACTION (111.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Widening Gyre"], ["publisher_id", 17], ["created_at", "2020-12-13 16:12:06.555503"], ["updated_at", "2020-12-13 16:12:06.555503"]]
+  [1m[36mTRANSACTION (109.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Virgin Publishing"], ["created_at", "2020-12-13 16:12:06.677797"], ["updated_at", "2020-12-13 16:12:06.677797"]]
+  [1m[36mTRANSACTION (108.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "If I Forget Thee Jerusalem"], ["publisher_id", 18], ["created_at", "2020-12-13 16:12:06.798764"], ["updated_at", "2020-12-13 16:12:06.798764"]]
+  [1m[36mTRANSACTION (122.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.8ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Airiti Press"], ["created_at", "2020-12-13 16:12:06.933197"], ["updated_at", "2020-12-13 16:12:06.933197"]]
+  [1m[36mTRANSACTION (109.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Far-Distant Oxus"], ["publisher_id", 19], ["created_at", "2020-12-13 16:12:07.054242"], ["updated_at", "2020-12-13 16:12:07.054242"]]
+  [1m[36mTRANSACTION (99.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "McGraw-Hill Education"], ["created_at", "2020-12-13 16:12:07.165714"], ["updated_at", "2020-12-13 16:12:07.165714"]]
+  [1m[36mTRANSACTION (87.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Tiger! Tiger!"], ["publisher_id", 20], ["created_at", "2020-12-13 16:12:07.264740"], ["updated_at", "2020-12-13 16:12:07.264740"]]
+  [1m[36mTRANSACTION (100.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.1ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Signet Books"], ["created_at", "2020-12-13 16:12:07.376332"], ["updated_at", "2020-12-13 16:12:07.376332"]]
+  [1m[36mTRANSACTION (165.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "O Jerusalem!"], ["publisher_id", 21], ["created_at", "2020-12-13 16:12:07.552050"], ["updated_at", "2020-12-13 16:12:07.552050"]]
+  [1m[36mTRANSACTION (100.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.3ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Random House"], ["created_at", "2020-12-13 16:12:07.666390"], ["updated_at", "2020-12-13 16:12:07.666390"]]
+  [1m[36mTRANSACTION (119.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (4.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Time To Murder And Create"], ["publisher_id", 22], ["created_at", "2020-12-13 16:12:07.799568"], ["updated_at", "2020-12-13 16:12:07.799568"]]
+  [1m[36mTRANSACTION (122.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (4.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Book League of America"], ["created_at", "2020-12-13 16:12:07.942794"], ["updated_at", "2020-12-13 16:12:07.942794"]]
+  [1m[36mTRANSACTION (118.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Moon by Night"], ["publisher_id", 23], ["created_at", "2020-12-13 16:12:08.081621"], ["updated_at", "2020-12-13 16:12:08.081621"]]
+  [1m[36mTRANSACTION (153.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Parragon"], ["created_at", "2020-12-13 16:12:08.248489"], ["updated_at", "2020-12-13 16:12:08.248489"]]
+  [1m[36mTRANSACTION (120.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (5.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Down to a Sunless Sea"], ["publisher_id", 24], ["created_at", "2020-12-13 16:12:08.383985"], ["updated_at", "2020-12-13 16:12:08.383985"]]
+  [1m[36mTRANSACTION (111.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fearless Books"], ["created_at", "2020-12-13 16:12:08.514114"], ["updated_at", "2020-12-13 16:12:08.514114"]]
+  [1m[36mTRANSACTION (104.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Last Enemy"], ["publisher_id", 25], ["created_at", "2020-12-13 16:12:08.630792"], ["updated_at", "2020-12-13 16:12:08.630792"]]
+  [1m[36mTRANSACTION (120.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Booktrope"], ["created_at", "2020-12-13 16:12:08.763741"], ["updated_at", "2020-12-13 16:12:08.763741"]]
+  [1m[36mTRANSACTION (115.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Clouds of Witness"], ["publisher_id", 26], ["created_at", "2020-12-13 16:12:08.892991"], ["updated_at", "2020-12-13 16:12:08.892991"]]
+  [1m[36mTRANSACTION (143.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ian Allan Publishing"], ["created_at", "2020-12-13 16:12:09.050297"], ["updated_at", "2020-12-13 16:12:09.050297"]]
+  [1m[36mTRANSACTION (124.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (6.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Other Side of Silence"], ["publisher_id", 27], ["created_at", "2020-12-13 16:12:09.187153"], ["updated_at", "2020-12-13 16:12:09.187153"]]
+  [1m[36mTRANSACTION (109.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Carlton Books"], ["created_at", "2020-12-13 16:12:09.317076"], ["updated_at", "2020-12-13 16:12:09.317076"]]
+  [1m[36mTRANSACTION (106.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Precious Bane"], ["publisher_id", 28], ["created_at", "2020-12-13 16:12:09.434049"], ["updated_at", "2020-12-13 16:12:09.434049"]]
+  [1m[36mTRANSACTION (122.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Brill Publishers"], ["created_at", "2020-12-13 16:12:09.566880"], ["updated_at", "2020-12-13 16:12:09.566880"]]
+  [1m[36mTRANSACTION (102.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Number the Stars"], ["publisher_id", 29], ["created_at", "2020-12-13 16:12:09.680617"], ["updated_at", "2020-12-13 16:12:09.680617"]]
+  [1m[36mTRANSACTION (135.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.0ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Zondervan"], ["created_at", "2020-12-13 16:12:09.829519"], ["updated_at", "2020-12-13 16:12:09.829519"]]
+  [1m[36mTRANSACTION (111.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Nine Coaches Waiting"], ["publisher_id", 30], ["created_at", "2020-12-13 16:12:09.954813"], ["updated_at", "2020-12-13 16:12:09.954813"]]
+  [1m[36mTRANSACTION (120.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pavilion Books"], ["created_at", "2020-12-13 16:12:10.090778"], ["updated_at", "2020-12-13 16:12:10.090778"]]
+  [1m[36mTRANSACTION (116.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Moab Is My Washpot"], ["publisher_id", 31], ["created_at", "2020-12-13 16:12:10.222552"], ["updated_at", "2020-12-13 16:12:10.222552"]]
+  [1m[36mTRANSACTION (130.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.7ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Upton Inc"], ["created_at", "2020-12-13 16:12:10.364735"], ["updated_at", "2020-12-13 16:12:10.364735"]]
+  [1m[36mTRANSACTION (123.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (4.7ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Frami-Dietrich"], ["created_at", "2020-12-13 16:12:10.500765"], ["updated_at", "2020-12-13 16:12:10.500765"]]
+  [1m[36mTRANSACTION (107.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (4.2ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Buckridge-Mueller"], ["created_at", "2020-12-13 16:12:10.628752"], ["updated_at", "2020-12-13 16:12:10.628752"]]
+  [1m[36mTRANSACTION (119.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (4.1ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Schowalter-Hoppe"], ["created_at", "2020-12-13 16:12:10.765603"], ["updated_at", "2020-12-13 16:12:10.765603"]]
+  [1m[36mTRANSACTION (134.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.1ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Koepp Group"], ["created_at", "2020-12-13 16:12:10.917067"], ["updated_at", "2020-12-13 16:12:10.917067"]]
+  [1m[36mTRANSACTION (126.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.9ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Braun Group"], ["created_at", "2020-12-13 16:12:11.057965"], ["updated_at", "2020-12-13 16:12:11.057965"]]
+  [1m[36mTRANSACTION (147.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (4.0ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Schroeder-Muller"], ["created_at", "2020-12-13 16:12:11.218324"], ["updated_at", "2020-12-13 16:12:11.218324"]]
+  [1m[36mTRANSACTION (125.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.8ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Green, Ryan and McKenzie"], ["created_at", "2020-12-13 16:12:11.384892"], ["updated_at", "2020-12-13 16:12:11.384892"]]
+  [1m[36mTRANSACTION (139.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.8ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Schaden, Wisozk and Heller"], ["created_at", "2020-12-13 16:12:11.538295"], ["updated_at", "2020-12-13 16:12:11.538295"]]
+  [1m[36mTRANSACTION (109.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Koelpin and Sons"], ["created_at", "2020-12-13 16:12:11.659370"], ["updated_at", "2020-12-13 16:12:11.659370"]]
+  [1m[36mTRANSACTION (123.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (4.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Crooks, Lemke and Fritsch"], ["created_at", "2020-12-13 16:12:11.797044"], ["updated_at", "2020-12-13 16:12:11.797044"]]
+  [1m[36mTRANSACTION (120.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.2ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Yundt, Walker and Pagac"], ["created_at", "2020-12-13 16:12:11.933396"], ["updated_at", "2020-12-13 16:12:11.933396"]]
+  [1m[36mTRANSACTION (101.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.8ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Medhurst, Towne and Predovic"], ["created_at", "2020-12-13 16:12:12.046935"], ["updated_at", "2020-12-13 16:12:12.046935"]]
+  [1m[36mTRANSACTION (110.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.9ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Reichel, Hills and Langworth"], ["created_at", "2020-12-13 16:12:12.172416"], ["updated_at", "2020-12-13 16:12:12.172416"]]
+  [1m[36mTRANSACTION (109.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "McKenzie, Grimes and Langosh"], ["created_at", "2020-12-13 16:12:12.293407"], ["updated_at", "2020-12-13 16:12:12.293407"]]
+  [1m[36mTRANSACTION (108.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.8ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Larkin Inc"], ["created_at", "2020-12-13 16:12:12.412485"], ["updated_at", "2020-12-13 16:12:12.412485"]]
+  [1m[36mTRANSACTION (123.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (4.1ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kilback, Howe and Wintheiser"], ["created_at", "2020-12-13 16:12:12.549321"], ["updated_at", "2020-12-13 16:12:12.549321"]]
+  [1m[36mTRANSACTION (93.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Purdy, Kovacek and Baumbach"], ["created_at", "2020-12-13 16:12:12.657096"], ["updated_at", "2020-12-13 16:12:12.657096"]]
+  [1m[36mTRANSACTION (98.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kris, Lang and Dicki"], ["created_at", "2020-12-13 16:12:12.767229"], ["updated_at", "2020-12-13 16:12:12.767229"]]
+  [1m[36mTRANSACTION (113.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.9ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Nader, Gulgowski and Kovacek"], ["created_at", "2020-12-13 16:12:12.890941"], ["updated_at", "2020-12-13 16:12:12.890941"]]
+  [1m[36mTRANSACTION (109.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.9ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Leaf Books"], ["created_at", "2020-12-13 16:12:13.011389"], ["updated_at", "2020-12-13 16:12:13.011389"]]
+  [1m[36mTRANSACTION (124.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (27.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Heyday Books"], ["created_at", "2020-12-13 16:12:13.149619"], ["updated_at", "2020-12-13 16:12:13.149619"]]
+  [1m[36mTRANSACTION (114.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.9ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Atheneum Books"], ["created_at", "2020-12-13 16:12:13.303038"], ["updated_at", "2020-12-13 16:12:13.303038"]]
+  [1m[36mTRANSACTION (107.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.3ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Apress"], ["created_at", "2020-12-13 16:12:13.424689"], ["updated_at", "2020-12-13 16:12:13.424689"]]
+  [1m[36mTRANSACTION (106.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (4.2ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Peace Hill Press"], ["created_at", "2020-12-13 16:12:13.545352"], ["updated_at", "2020-12-13 16:12:13.545352"]]
+  [1m[36mTRANSACTION (123.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Burns & Oates"], ["created_at", "2020-12-13 16:12:13.685830"], ["updated_at", "2020-12-13 16:12:13.685830"]]
+  [1m[36mTRANSACTION (109.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (10.8ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Blackstaff Press"], ["created_at", "2020-12-13 16:12:13.806422"], ["updated_at", "2020-12-13 16:12:13.806422"]]
+  [1m[36mTRANSACTION (113.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.9ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Library of America"], ["created_at", "2020-12-13 16:12:13.940433"], ["updated_at", "2020-12-13 16:12:13.940433"]]
+  [1m[36mTRANSACTION (110.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Blue Ribbon Books"], ["created_at", "2020-12-13 16:12:14.062346"], ["updated_at", "2020-12-13 16:12:14.062346"]]
+  [1m[36mTRANSACTION (113.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.9ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Legend Books"], ["created_at", "2020-12-13 16:12:14.186001"], ["updated_at", "2020-12-13 16:12:14.186001"]]
+  [1m[36mTRANSACTION (164.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Harper & Brothers"], ["created_at", "2020-12-13 16:12:14.360791"], ["updated_at", "2020-12-13 16:12:14.360791"]]
+  [1m[36mTRANSACTION (114.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (4.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Shoemaker & Hoard Publishers"], ["created_at", "2020-12-13 16:12:14.487174"], ["updated_at", "2020-12-13 16:12:14.487174"]]
+  [1m[36mTRANSACTION (136.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (4.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Liberty Fund"], ["created_at", "2020-12-13 16:12:14.642827"], ["updated_at", "2020-12-13 16:12:14.642827"]]
+  [1m[36mTRANSACTION (113.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.3ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pantheon Books at Random House"], ["created_at", "2020-12-13 16:12:14.776114"], ["updated_at", "2020-12-13 16:12:14.776114"]]
+  [1m[36mTRANSACTION (108.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Hodder Headline"], ["created_at", "2020-12-13 16:12:14.899459"], ["updated_at", "2020-12-13 16:12:14.899459"]]
+  [1m[36mTRANSACTION (104.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Chambers Harrap"], ["created_at", "2020-12-13 16:12:15.016504"], ["updated_at", "2020-12-13 16:12:15.016504"]]
+  [1m[36mTRANSACTION (109.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.0ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Holland Park Press"], ["created_at", "2020-12-13 16:12:15.139067"], ["updated_at", "2020-12-13 16:12:15.139067"]]
+  [1m[36mTRANSACTION (118.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (11.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Palgrave Macmillan"], ["created_at", "2020-12-13 16:12:15.268374"], ["updated_at", "2020-12-13 16:12:15.268374"]]
+  [1m[36mTRANSACTION (171.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "ECW Press"], ["created_at", "2020-12-13 16:12:15.461710"], ["updated_at", "2020-12-13 16:12:15.461710"]]
+  [1m[36mTRANSACTION (143.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kodansha"], ["created_at", "2020-12-13 16:12:15.621103"], ["updated_at", "2020-12-13 16:12:15.621103"]]
+  [1m[36mTRANSACTION (148.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-12-13 19:14:00 +0300
+  [1m[35m (9.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 23.0ms | Allocations: 407)
+Completed 200 OK in 66ms (Views: 46.6ms | ActiveRecord: 0.0ms | Allocations: 2236)
+
+
+Started GET "/" for 127.0.0.1 at 2020-12-13 19:14:21 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 17.4ms | Allocations: 185)
+Completed 200 OK in 30ms (Views: 22.5ms | ActiveRecord: 0.0ms | Allocations: 746)
+
+
+Started GET "/publishers/:id/shops" for 127.0.0.1 at 2020-12-13 19:15:50 +0300
+Processing by PublisherController#shops as HTML
+  Parameters: {"id"=>":id"}
+  [1m[36mPublisher Load (0.8ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/publisher_controller.rb:3:in `shops'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 404 Not Found in 77ms (Views: 23.7ms | ActiveRecord: 3.5ms | Allocations: 5407)
+
+
+Started GET "/publishers/1/shops" for 127.0.0.1 at 2020-12-13 19:15:55 +0300
+Processing by PublisherController#shops as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPublisher Load (0.6ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/publisher_controller.rb:3:in `shops'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 404 Not Found in 7ms (Views: 1.5ms | ActiveRecord: 0.6ms | Allocations: 621)
+
+
+Started GET "/publishers/2/shops" for 127.0.0.1 at 2020-12-13 19:15:59 +0300
+Processing by PublisherController#shops as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPublisher Load (0.7ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/publisher_controller.rb:3:in `shops'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 404 Not Found in 8ms (Views: 2.3ms | ActiveRecord: 0.7ms | Allocations: 614)
+
+
+Started GET "/publishers/2/shops" for 127.0.0.1 at 2020-12-13 19:16:02 +0300
+Processing by PublisherController#shops as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPublisher Load (0.6ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/publisher_controller.rb:3:in `shops'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 404 Not Found in 7ms (Views: 1.6ms | ActiveRecord: 0.6ms | Allocations: 619)
+
+
+Started GET "/publishers/2/shops" for 127.0.0.1 at 2020-12-13 19:16:03 +0300
+Processing by PublisherController#shops as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPublisher Load (0.6ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/publisher_controller.rb:3:in `shops'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 404 Not Found in 6ms (Views: 1.6ms | ActiveRecord: 0.6ms | Allocations: 619)
+
+
+Started GET "/publishers/2/shops" for 127.0.0.1 at 2020-12-13 19:16:03 +0300
+Processing by PublisherController#shops as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPublisher Load (0.5ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/publisher_controller.rb:3:in `shops'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 404 Not Found in 7ms (Views: 1.3ms | ActiveRecord: 0.5ms | Allocations: 600)
+
+
+Started GET "/publishers/2/shops" for 127.0.0.1 at 2020-12-13 19:16:04 +0300
+Processing by PublisherController#shops as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPublisher Load (0.4ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/publisher_controller.rb:3:in `shops'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 404 Not Found in 9ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 600)
+
+
+Started GET "/publishers/:id/shops" for 127.0.0.1 at 2020-12-13 19:16:23 +0300
+Processing by PublisherController#shops as HTML
+  Parameters: {"id"=>":id"}
+  [1m[36mPublisher Load (0.5ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/publisher_controller.rb:3:in `shops'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 404 Not Found in 11ms (Views: 4.0ms | ActiveRecord: 0.5ms | Allocations: 600)
+
+
+Started GET "/publishers/1/shops" for 127.0.0.1 at 2020-12-13 19:16:28 +0300
+Processing by PublisherController#shops as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPublisher Load (0.6ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/publisher_controller.rb:3:in `shops'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 404 Not Found in 14ms (Views: 2.5ms | ActiveRecord: 0.6ms | Allocations: 600)
+
+
+Started GET "/publishers/1/shops" for 127.0.0.1 at 2020-12-13 19:17:00 +0300
+Processing by PublisherController#shops as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPublisher Load (0.6ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/publisher_controller.rb:3:in `shops'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 404 Not Found in 7ms (Views: 1.8ms | ActiveRecord: 0.6ms | Allocations: 600)
+
+
+Started GET "/" for 127.0.0.1 at 2020-12-13 19:19:41 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.6ms | Allocations: 8)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 231)
+
+
+Started GET "/" for 127.0.0.1 at 2020-12-13 19:19:42 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 7)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 228)
+
+
+Started GET "/" for 127.0.0.1 at 2020-12-13 19:19:43 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered E:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 8)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 230)
+
+
+  [1m[35m (10.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kensington Books"], ["created_at", "2020-12-13 16:30:55.041914"], ["updated_at", "2020-12-13 16:30:55.041914"]]
+  [1m[36mTRANSACTION (161.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Waste Land"], ["publisher_id", 1], ["created_at", "2020-12-13 16:30:55.283463"], ["updated_at", "2020-12-13 16:30:55.283463"]]
+  [1m[36mTRANSACTION (103.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "A Handful of Dust"], ["publisher_id", 1], ["created_at", "2020-12-13 16:30:55.398810"], ["updated_at", "2020-12-13 16:30:55.398810"]]
+  [1m[36mTRANSACTION (106.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "By Grand Central Station I Sat Down and Wept"], ["publisher_id", 1], ["created_at", "2020-12-13 16:30:55.519113"], ["updated_at", "2020-12-13 16:30:55.519113"]]
+  [1m[36mTRANSACTION (110.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jacobi-Greenholt"], ["created_at", "2020-12-13 16:30:55.658791"], ["updated_at", "2020-12-13 16:30:55.658791"]]
+  [1m[36mTRANSACTION (91.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.0ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jakubowski-Legros"], ["created_at", "2020-12-13 16:30:55.760977"], ["updated_at", "2020-12-13 16:30:55.760977"]]
+  [1m[36mTRANSACTION (121.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.7ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kohler LLC"], ["created_at", "2020-12-13 16:30:55.893864"], ["updated_at", "2020-12-13 16:30:55.893864"]]
+  [1m[36mTRANSACTION (105.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.8ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 1], ["book_id", 1], ["amount", 7], ["created_at", "2020-12-13 16:30:56.034837"], ["updated_at", "2020-12-13 16:30:56.034837"]]
+  [1m[36mTRANSACTION (135.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.8ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 1], ["book_id", 2], ["amount", 5], ["created_at", "2020-12-13 16:30:56.181244"], ["updated_at", "2020-12-13 16:30:56.181244"]]
+  [1m[36mTRANSACTION (193.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.6ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 1], ["book_id", 3], ["amount", 11], ["created_at", "2020-12-13 16:30:56.388126"], ["updated_at", "2020-12-13 16:30:56.388126"]]
+  [1m[36mTRANSACTION (140.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.8ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["amount", 3], ["created_at", "2020-12-13 16:30:56.539914"], ["updated_at", "2020-12-13 16:30:56.539914"]]
+  [1m[36mTRANSACTION (151.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (11.7ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["amount", 19], ["created_at", "2020-12-13 16:30:56.702026"], ["updated_at", "2020-12-13 16:30:56.702026"]]
+  [1m[36mTRANSACTION (181.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.8ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 3], ["book_id", 3], ["amount", 55], ["created_at", "2020-12-13 16:30:56.902604"], ["updated_at", "2020-12-13 16:30:56.902604"]]
+  [1m[36mTRANSACTION (119.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (3.4ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:30:57.063503"], ["updated_at", "2020-12-13 16:30:57.063503"]]
+  [1m[36mTRANSACTION (135.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (5.5ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:30:57.213768"], ["updated_at", "2020-12-13 16:30:57.213768"]]
+  [1m[36mTRANSACTION (98.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.5ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:30:57.332362"], ["updated_at", "2020-12-13 16:30:57.332362"]]
+  [1m[36mTRANSACTION (122.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.7ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:30:57.465044"], ["updated_at", "2020-12-13 16:30:57.465044"]]
+  [1m[36mTRANSACTION (128.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (3.5ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:30:57.605008"], ["updated_at", "2020-12-13 16:30:57.605008"]]
+  [1m[36mTRANSACTION (116.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.3ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:30:57.735299"], ["updated_at", "2020-12-13 16:30:57.735299"]]
+  [1m[36mTRANSACTION (83.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.8ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 2], ["created_at", "2020-12-13 16:30:57.830025"], ["updated_at", "2020-12-13 16:30:57.830025"]]
+  [1m[36mTRANSACTION (112.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.8ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:30:57.953659"], ["updated_at", "2020-12-13 16:30:57.953659"]]
+  [1m[36mTRANSACTION (108.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.8ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:30:58.072837"], ["updated_at", "2020-12-13 16:30:58.072837"]]
+  [1m[36mTRANSACTION (97.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.3ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:30:58.184465"], ["updated_at", "2020-12-13 16:30:58.184465"]]
+  [1m[36mTRANSACTION (110.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.8ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:30:58.309367"], ["updated_at", "2020-12-13 16:30:58.309367"]]
+  [1m[36mTRANSACTION (131.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.6ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:30:58.453822"], ["updated_at", "2020-12-13 16:30:58.453822"]]
+  [1m[36mTRANSACTION (115.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (5.0ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:30:58.584307"], ["updated_at", "2020-12-13 16:30:58.584307"]]
+  [1m[36mTRANSACTION (126.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (3.8ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:30:58.727216"], ["updated_at", "2020-12-13 16:30:58.727216"]]
+  [1m[36mTRANSACTION (132.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.6ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:30:58.870954"], ["updated_at", "2020-12-13 16:30:58.870954"]]
+  [1m[36mTRANSACTION (104.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (5.6ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:30:58.988042"], ["updated_at", "2020-12-13 16:30:58.988042"]]
+  [1m[36mTRANSACTION (99.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.5ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:30:59.105386"], ["updated_at", "2020-12-13 16:30:59.105386"]]
+  [1m[36mTRANSACTION (98.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.5ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 2], ["book_id", 3], ["created_at", "2020-12-13 16:30:59.214101"], ["updated_at", "2020-12-13 16:30:59.214101"]]
+  [1m[36mTRANSACTION (108.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (2.6ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 3], ["book_id", 3], ["created_at", "2020-12-13 16:30:59.332928"], ["updated_at", "2020-12-13 16:30:59.332928"]]
+  [1m[36mTRANSACTION (112.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPurchase Create (3.4ms)[0m  [1m[32mINSERT INTO "purchases" ("shop_id", "book_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["shop_id", 3], ["book_id", 3], ["created_at", "2020-12-13 16:30:59.456777"], ["updated_at", "2020-12-13 16:30:59.456777"]]
+  [1m[36mTRANSACTION (110.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (5.1ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Vintage Books at Random House"], ["created_at", "2020-12-13 16:30:59.585122"], ["updated_at", "2020-12-13 16:30:59.585122"]]
+  [1m[36mTRANSACTION (128.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Fair Stood the Wind for France"], ["publisher_id", 2], ["created_at", "2020-12-13 16:30:59.733978"], ["updated_at", "2020-12-13 16:30:59.733978"]]
+  [1m[36mTRANSACTION (129.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (4.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Conn Inc"], ["created_at", "2020-12-13 16:30:59.882507"], ["updated_at", "2020-12-13 16:30:59.882507"]]
+  [1m[36mTRANSACTION (128.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.6ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 4], ["book_id", 4], ["amount", 4319], ["created_at", "2020-12-13 16:31:00.037130"], ["updated_at", "2020-12-13 16:31:00.037130"]]
+  [1m[36mTRANSACTION (130.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Manning Publications"], ["created_at", "2020-12-13 16:31:00.178174"], ["updated_at", "2020-12-13 16:31:00.178174"]]
+  [1m[36mTRANSACTION (110.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Quo Vadis"], ["publisher_id", 3], ["created_at", "2020-12-13 16:31:00.300427"], ["updated_at", "2020-12-13 16:31:00.300427"]]
+  [1m[36mTRANSACTION (118.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Nolan, Kihn and Jenkins"], ["created_at", "2020-12-13 16:31:00.434307"], ["updated_at", "2020-12-13 16:31:00.434307"]]
+  [1m[36mTRANSACTION (119.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.5ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 5], ["book_id", 5], ["amount", 302], ["created_at", "2020-12-13 16:31:00.568866"], ["updated_at", "2020-12-13 16:31:00.568866"]]
+  [1m[36mTRANSACTION (118.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Blackwell Publishing"], ["created_at", "2020-12-13 16:31:00.698164"], ["updated_at", "2020-12-13 16:31:00.698164"]]
+  [1m[36mTRANSACTION (110.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Number the Stars"], ["publisher_id", 4], ["created_at", "2020-12-13 16:31:00.820080"], ["updated_at", "2020-12-13 16:31:00.820080"]]
+  [1m[36mTRANSACTION (86.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.7ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Beer LLC"], ["created_at", "2020-12-13 16:31:00.920097"], ["updated_at", "2020-12-13 16:31:00.920097"]]
+  [1m[36mTRANSACTION (131.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.6ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 6], ["book_id", 6], ["amount", 82], ["created_at", "2020-12-13 16:31:01.069037"], ["updated_at", "2020-12-13 16:31:01.069037"]]
+  [1m[36mTRANSACTION (113.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.8ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "FabJob"], ["created_at", "2020-12-13 16:31:01.192756"], ["updated_at", "2020-12-13 16:31:01.192756"]]
+  [1m[36mTRANSACTION (114.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (4.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Soldier's Art"], ["publisher_id", 5], ["created_at", "2020-12-13 16:31:01.320601"], ["updated_at", "2020-12-13 16:31:01.320601"]]
+  [1m[36mTRANSACTION (173.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Spencer-Kuhlman"], ["created_at", "2020-12-13 16:31:01.513204"], ["updated_at", "2020-12-13 16:31:01.513204"]]
+  [1m[36mTRANSACTION (146.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (3.1ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 7], ["book_id", 7], ["amount", 4526], ["created_at", "2020-12-13 16:31:01.674015"], ["updated_at", "2020-12-13 16:31:01.674015"]]
+  [1m[36mTRANSACTION (153.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.9ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Verso Books"], ["created_at", "2020-12-13 16:31:01.839916"], ["updated_at", "2020-12-13 16:31:01.839916"]]
+  [1m[36mTRANSACTION (86.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "For a Breath I Tarry"], ["publisher_id", 6], ["created_at", "2020-12-13 16:31:01.939485"], ["updated_at", "2020-12-13 16:31:01.939485"]]
+  [1m[36mTRANSACTION (131.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.7ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Franecki, Rohan and Roob"], ["created_at", "2020-12-13 16:31:02.086693"], ["updated_at", "2020-12-13 16:31:02.086693"]]
+  [1m[36mTRANSACTION (118.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (3.2ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 8], ["book_id", 8], ["amount", 1187], ["created_at", "2020-12-13 16:31:02.219283"], ["updated_at", "2020-12-13 16:31:02.219283"]]
+  [1m[36mTRANSACTION (105.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Matthias Media"], ["created_at", "2020-12-13 16:31:02.337566"], ["updated_at", "2020-12-13 16:31:02.337566"]]
+  [1m[36mTRANSACTION (124.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Sun Also Rises"], ["publisher_id", 7], ["created_at", "2020-12-13 16:31:02.475591"], ["updated_at", "2020-12-13 16:31:02.475591"]]
+  [1m[36mTRANSACTION (114.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.0ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Bernhard, Prosacco and Huel"], ["created_at", "2020-12-13 16:31:02.602772"], ["updated_at", "2020-12-13 16:31:02.602772"]]
+  [1m[36mTRANSACTION (102.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (3.0ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 9], ["book_id", 9], ["amount", 592], ["created_at", "2020-12-13 16:31:02.776301"], ["updated_at", "2020-12-13 16:31:02.776301"]]
+  [1m[36mTRANSACTION (122.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (4.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Adis International"], ["created_at", "2020-12-13 16:31:02.912963"], ["updated_at", "2020-12-13 16:31:02.912963"]]
+  [1m[36mTRANSACTION (139.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Shall not Perish"], ["publisher_id", 8], ["created_at", "2020-12-13 16:31:03.073091"], ["updated_at", "2020-12-13 16:31:03.073091"]]
+  [1m[36mTRANSACTION (90.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Harris Inc"], ["created_at", "2020-12-13 16:31:03.178700"], ["updated_at", "2020-12-13 16:31:03.178700"]]
+  [1m[36mTRANSACTION (87.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.7ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 10], ["book_id", 10], ["amount", 1294], ["created_at", "2020-12-13 16:31:03.281595"], ["updated_at", "2020-12-13 16:31:03.281595"]]
+  [1m[36mTRANSACTION (117.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.2ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Canongate Books"], ["created_at", "2020-12-13 16:31:03.411776"], ["updated_at", "2020-12-13 16:31:03.411776"]]
+  [1m[36mTRANSACTION (123.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Those Barren Leaves, Thrones, Dominations"], ["publisher_id", 9], ["created_at", "2020-12-13 16:31:03.552547"], ["updated_at", "2020-12-13 16:31:03.552547"]]
+  [1m[36mTRANSACTION (109.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Harber, Dare and DuBuque"], ["created_at", "2020-12-13 16:31:03.675844"], ["updated_at", "2020-12-13 16:31:03.675844"]]
+  [1m[36mTRANSACTION (100.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.6ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 11], ["book_id", 11], ["amount", 3825], ["created_at", "2020-12-13 16:31:03.789587"], ["updated_at", "2020-12-13 16:31:03.789587"]]
+  [1m[36mTRANSACTION (108.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Butterworth-Heinemann"], ["created_at", "2020-12-13 16:31:03.910565"], ["updated_at", "2020-12-13 16:31:03.910565"]]
+  [1m[36mTRANSACTION (116.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Things Fall Apart"], ["publisher_id", 10], ["created_at", "2020-12-13 16:31:04.041680"], ["updated_at", "2020-12-13 16:31:04.041680"]]
+  [1m[36mTRANSACTION (111.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (12.7ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Hane-Weber"], ["created_at", "2020-12-13 16:31:04.165358"], ["updated_at", "2020-12-13 16:31:04.165358"]]
+  [1m[36mTRANSACTION (115.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.8ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 12], ["book_id", 12], ["amount", 1898], ["created_at", "2020-12-13 16:31:04.309339"], ["updated_at", "2020-12-13 16:31:04.309339"]]
+  [1m[36mTRANSACTION (98.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "New English Library"], ["created_at", "2020-12-13 16:31:04.418717"], ["updated_at", "2020-12-13 16:31:04.418717"]]
+  [1m[36mTRANSACTION (106.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (5.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "An Instant In The Wind"], ["publisher_id", 11], ["created_at", "2020-12-13 16:31:04.537985"], ["updated_at", "2020-12-13 16:31:04.537985"]]
+  [1m[36mTRANSACTION (141.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Aufderhar-Kub"], ["created_at", "2020-12-13 16:31:04.699370"], ["updated_at", "2020-12-13 16:31:04.699370"]]
+  [1m[36mTRANSACTION (108.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Create (2.8ms)[0m  [1m[32mINSERT INTO "stocks" ("shop_id", "book_id", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["shop_id", 13], ["book_id", 13], ["amount", 2637], ["created_at", "2020-12-13 16:31:04.821530"], ["updated_at", "2020-12-13 16:31:04.821530"]]
+  [1m[36mTRANSACTION (120.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (5.9ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Booktrope"], ["created_at", "2020-12-13 16:31:04.955629"], ["updated_at", "2020-12-13 16:31:04.955629"]]
+  [1m[36mTRANSACTION (122.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (4.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Last Temptation"], ["publisher_id", 12], ["created_at", "2020-12-13 16:31:05.097572"], ["updated_at", "2020-12-13 16:31:05.097572"]]
+  [1m[36mTRANSACTION (100.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "NavPress"], ["created_at", "2020-12-13 16:31:05.215363"], ["updated_at", "2020-12-13 16:31:05.215363"]]
+  [1m[36mTRANSACTION (114.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (5.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "No Longer at Ease"], ["publisher_id", 13], ["created_at", "2020-12-13 16:31:05.342463"], ["updated_at", "2020-12-13 16:31:05.342463"]]
+  [1m[36mTRANSACTION (119.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.9ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Tachyon Publications"], ["created_at", "2020-12-13 16:31:05.481149"], ["updated_at", "2020-12-13 16:31:05.481149"]]
+  [1m[36mTRANSACTION (114.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (4.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This Lime Tree Bower"], ["publisher_id", 14], ["created_at", "2020-12-13 16:31:05.612429"], ["updated_at", "2020-12-13 16:31:05.612429"]]
+  [1m[36mTRANSACTION (117.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jaico Publishing House"], ["created_at", "2020-12-13 16:31:05.746821"], ["updated_at", "2020-12-13 16:31:05.746821"]]
+  [1m[36mTRANSACTION (98.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (4.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Number the Stars"], ["publisher_id", 15], ["created_at", "2020-12-13 16:31:05.856819"], ["updated_at", "2020-12-13 16:31:05.856819"]]
+  [1m[36mTRANSACTION (110.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "George Routledge & Sons"], ["created_at", "2020-12-13 16:31:05.982993"], ["updated_at", "2020-12-13 16:31:05.982993"]]
+  [1m[36mTRANSACTION (109.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Françoise Sagan"], ["publisher_id", 16], ["created_at", "2020-12-13 16:31:06.108150"], ["updated_at", "2020-12-13 16:31:06.108150"]]
+  [1m[36mTRANSACTION (92.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.0ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "McClelland and Stewart"], ["created_at", "2020-12-13 16:31:06.212433"], ["updated_at", "2020-12-13 16:31:06.212433"]]
+  [1m[36mTRANSACTION (97.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Arms and the Man"], ["publisher_id", 17], ["created_at", "2020-12-13 16:31:06.322499"], ["updated_at", "2020-12-13 16:31:06.322499"]]
+  [1m[36mTRANSACTION (110.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fearless Books"], ["created_at", "2020-12-13 16:31:06.443917"], ["updated_at", "2020-12-13 16:31:06.443917"]]
+  [1m[36mTRANSACTION (116.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Fame Is the Spur"], ["publisher_id", 18], ["created_at", "2020-12-13 16:31:06.571312"], ["updated_at", "2020-12-13 16:31:06.571312"]]
+  [1m[36mTRANSACTION (108.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.8ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Mark Batty Publisher"], ["created_at", "2020-12-13 16:31:06.691289"], ["updated_at", "2020-12-13 16:31:06.691289"]]
+  [1m[36mTRANSACTION (153.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Far From the Madding Crowd"], ["publisher_id", 19], ["created_at", "2020-12-13 16:31:06.859473"], ["updated_at", "2020-12-13 16:31:06.859473"]]
+  [1m[36mTRANSACTION (82.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Blackie and Son Limited"], ["created_at", "2020-12-13 16:31:06.952688"], ["updated_at", "2020-12-13 16:31:06.952688"]]
+  [1m[36mTRANSACTION (138.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "In Death Ground"], ["publisher_id", 20], ["created_at", "2020-12-13 16:31:07.101725"], ["updated_at", "2020-12-13 16:31:07.101725"]]
+  [1m[36mTRANSACTION (94.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jaico Publishing House"], ["created_at", "2020-12-13 16:31:07.207403"], ["updated_at", "2020-12-13 16:31:07.207403"]]
+  [1m[36mTRANSACTION (103.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (5.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Quo Vadis"], ["publisher_id", 21], ["created_at", "2020-12-13 16:31:07.324795"], ["updated_at", "2020-12-13 16:31:07.324795"]]
+  [1m[36mTRANSACTION (109.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cloverdale Corporation"], ["created_at", "2020-12-13 16:31:07.451726"], ["updated_at", "2020-12-13 16:31:07.451726"]]
+  [1m[36mTRANSACTION (99.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Down to a Sunless Sea"], ["publisher_id", 22], ["created_at", "2020-12-13 16:31:07.562243"], ["updated_at", "2020-12-13 16:31:07.562243"]]
+  [1m[36mTRANSACTION (126.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Carlton Publishing Group"], ["created_at", "2020-12-13 16:31:07.701866"], ["updated_at", "2020-12-13 16:31:07.701866"]]
+  [1m[36mTRANSACTION (106.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The World, the Flesh and the Devil"], ["publisher_id", 23], ["created_at", "2020-12-13 16:31:07.819908"], ["updated_at", "2020-12-13 16:31:07.819908"]]
+  [1m[36mTRANSACTION (107.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Packt Publishing"], ["created_at", "2020-12-13 16:31:07.938516"], ["updated_at", "2020-12-13 16:31:07.938516"]]
+  [1m[36mTRANSACTION (137.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "By Grand Central Station I Sat Down and Wept"], ["publisher_id", 24], ["created_at", "2020-12-13 16:31:08.089287"], ["updated_at", "2020-12-13 16:31:08.089287"]]
+  [1m[36mTRANSACTION (107.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Harry N. Abrams, Inc."], ["created_at", "2020-12-13 16:31:08.207102"], ["updated_at", "2020-12-13 16:31:08.207102"]]
+  [1m[36mTRANSACTION (111.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "In a Glass Darkly"], ["publisher_id", 25], ["created_at", "2020-12-13 16:31:08.329014"], ["updated_at", "2020-12-13 16:31:08.329014"]]
+  [1m[36mTRANSACTION (128.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.8ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Hodder & Stoughton"], ["created_at", "2020-12-13 16:31:08.470383"], ["updated_at", "2020-12-13 16:31:08.470383"]]
+  [1m[36mTRANSACTION (119.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Noli Me Tangere"], ["publisher_id", 26], ["created_at", "2020-12-13 16:31:08.604217"], ["updated_at", "2020-12-13 16:31:08.604217"]]
+  [1m[36mTRANSACTION (109.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.8ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "New Directions Publishing"], ["created_at", "2020-12-13 16:31:08.724955"], ["updated_at", "2020-12-13 16:31:08.724955"]]
+  [1m[36mTRANSACTION (110.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Look Homeward, Angel"], ["publisher_id", 27], ["created_at", "2020-12-13 16:31:08.846890"], ["updated_at", "2020-12-13 16:31:08.846890"]]
+  [1m[36mTRANSACTION (123.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Basic Books"], ["created_at", "2020-12-13 16:31:08.984712"], ["updated_at", "2020-12-13 16:31:08.984712"]]
+  [1m[36mTRANSACTION (104.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Soldier's Art"], ["publisher_id", 28], ["created_at", "2020-12-13 16:31:09.101491"], ["updated_at", "2020-12-13 16:31:09.101491"]]
+  [1m[36mTRANSACTION (88.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.2ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Karadi Tales"], ["created_at", "2020-12-13 16:31:09.200636"], ["updated_at", "2020-12-13 16:31:09.200636"]]
+  [1m[36mTRANSACTION (112.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Curious Incident of the Dog in the Night-Time"], ["publisher_id", 29], ["created_at", "2020-12-13 16:31:09.324534"], ["updated_at", "2020-12-13 16:31:09.324534"]]
+  [1m[36mTRANSACTION (99.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.3ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cengage Learning"], ["created_at", "2020-12-13 16:31:09.437383"], ["updated_at", "2020-12-13 16:31:09.437383"]]
+  [1m[36mTRANSACTION (109.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Ah, Wilderness!"], ["publisher_id", 30], ["created_at", "2020-12-13 16:31:09.559865"], ["updated_at", "2020-12-13 16:31:09.559865"]]
+  [1m[36mTRANSACTION (126.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (4.2ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Anova Books"], ["created_at", "2020-12-13 16:31:09.701067"], ["updated_at", "2020-12-13 16:31:09.701067"]]
+  [1m[36mTRANSACTION (103.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "A Time to Kill"], ["publisher_id", 31], ["created_at", "2020-12-13 16:31:09.820189"], ["updated_at", "2020-12-13 16:31:09.820189"]]
+  [1m[36mTRANSACTION (140.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.7ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Grant Group"], ["created_at", "2020-12-13 16:31:09.975912"], ["updated_at", "2020-12-13 16:31:09.975912"]]
+  [1m[36mTRANSACTION (112.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Murphy-Nicolas"], ["created_at", "2020-12-13 16:31:10.100496"], ["updated_at", "2020-12-13 16:31:10.100496"]]
+  [1m[36mTRANSACTION (116.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.8ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Stoltenberg, O'Reilly and Fritsch"], ["created_at", "2020-12-13 16:31:10.228837"], ["updated_at", "2020-12-13 16:31:10.228837"]]
+  [1m[36mTRANSACTION (89.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rice-Hartmann"], ["created_at", "2020-12-13 16:31:10.329610"], ["updated_at", "2020-12-13 16:31:10.329610"]]
+  [1m[36mTRANSACTION (97.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.8ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Larkin and Sons"], ["created_at", "2020-12-13 16:31:10.439004"], ["updated_at", "2020-12-13 16:31:10.439004"]]
+  [1m[36mTRANSACTION (127.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Waelchi-Konopelski"], ["created_at", "2020-12-13 16:31:10.581813"], ["updated_at", "2020-12-13 16:31:10.581813"]]
+  [1m[36mTRANSACTION (106.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.8ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Windler-Wehner"], ["created_at", "2020-12-13 16:31:10.700761"], ["updated_at", "2020-12-13 16:31:10.700761"]]
+  [1m[36mTRANSACTION (95.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.9ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Tremblay-Sauer"], ["created_at", "2020-12-13 16:31:10.806273"], ["updated_at", "2020-12-13 16:31:10.806273"]]
+  [1m[36mTRANSACTION (112.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kautzer-Rutherford"], ["created_at", "2020-12-13 16:31:10.931845"], ["updated_at", "2020-12-13 16:31:10.931845"]]
+  [1m[36mTRANSACTION (127.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (4.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Skiles Group"], ["created_at", "2020-12-13 16:31:11.076318"], ["updated_at", "2020-12-13 16:31:11.076318"]]
+  [1m[36mTRANSACTION (101.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (4.4ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ritchie, Davis and Schuster"], ["created_at", "2020-12-13 16:31:11.195610"], ["updated_at", "2020-12-13 16:31:11.195610"]]
+  [1m[36mTRANSACTION (115.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Larson LLC"], ["created_at", "2020-12-13 16:31:11.329574"], ["updated_at", "2020-12-13 16:31:11.329574"]]
+  [1m[36mTRANSACTION (104.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (27.1ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Bayer-Gleichner"], ["created_at", "2020-12-13 16:31:11.445628"], ["updated_at", "2020-12-13 16:31:11.445628"]]
+  [1m[36mTRANSACTION (96.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.2ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Bednar and Sons"], ["created_at", "2020-12-13 16:31:11.578736"], ["updated_at", "2020-12-13 16:31:11.578736"]]
+  [1m[36mTRANSACTION (90.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Howell-Mosciski"], ["created_at", "2020-12-13 16:31:11.684777"], ["updated_at", "2020-12-13 16:31:11.684777"]]
+  [1m[36mTRANSACTION (92.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (4.3ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Bernier-Stehr"], ["created_at", "2020-12-13 16:31:11.790401"], ["updated_at", "2020-12-13 16:31:11.790401"]]
+  [1m[36mTRANSACTION (128.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.9ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Gorczany-Padberg"], ["created_at", "2020-12-13 16:31:11.933902"], ["updated_at", "2020-12-13 16:31:11.933902"]]
+  [1m[36mTRANSACTION (112.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (3.0ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Wunsch-Kuvalis"], ["created_at", "2020-12-13 16:31:12.057678"], ["updated_at", "2020-12-13 16:31:12.057678"]]
+  [1m[36mTRANSACTION (98.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Robel LLC"], ["created_at", "2020-12-13 16:31:12.167386"], ["updated_at", "2020-12-13 16:31:12.167386"]]
+  [1m[36mTRANSACTION (100.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mShop Create (2.5ms)[0m  [1m[32mINSERT INTO "shops" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Smith-Padberg"], ["created_at", "2020-12-13 16:31:12.278219"], ["updated_at", "2020-12-13 16:31:12.278219"]]
+  [1m[36mTRANSACTION (122.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.9ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Carlton Publishing Group"], ["created_at", "2020-12-13 16:31:12.411433"], ["updated_at", "2020-12-13 16:31:12.411433"]]
+  [1m[36mTRANSACTION (115.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Blackstaff Press"], ["created_at", "2020-12-13 16:31:12.537199"], ["updated_at", "2020-12-13 16:31:12.537199"]]
+  [1m[36mTRANSACTION (73.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "University of Alaska Press"], ["created_at", "2020-12-13 16:31:12.622087"], ["updated_at", "2020-12-13 16:31:12.622087"]]
+  [1m[36mTRANSACTION (111.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.0ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "John Blake Publishing"], ["created_at", "2020-12-13 16:31:12.742968"], ["updated_at", "2020-12-13 16:31:12.742968"]]
+  [1m[36mTRANSACTION (124.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (4.2ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Velazquez Press"], ["created_at", "2020-12-13 16:31:12.880369"], ["updated_at", "2020-12-13 16:31:12.880369"]]
+  [1m[36mTRANSACTION (113.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ziff Davis Media"], ["created_at", "2020-12-13 16:31:13.010435"], ["updated_at", "2020-12-13 16:31:13.010435"]]
+  [1m[36mTRANSACTION (122.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (4.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Harcourt Assessment"], ["created_at", "2020-12-13 16:31:13.144766"], ["updated_at", "2020-12-13 16:31:13.144766"]]
+  [1m[36mTRANSACTION (125.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.5ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "J. M. Dent"], ["created_at", "2020-12-13 16:31:13.287561"], ["updated_at", "2020-12-13 16:31:13.287561"]]
+  [1m[36mTRANSACTION (106.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.8ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Reed Publishing"], ["created_at", "2020-12-13 16:31:13.404230"], ["updated_at", "2020-12-13 16:31:13.404230"]]
+  [1m[36mTRANSACTION (106.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Felony & Mayhem Press"], ["created_at", "2020-12-13 16:31:13.521116"], ["updated_at", "2020-12-13 16:31:13.521116"]]
+  [1m[36mTRANSACTION (108.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Karadi Tales"], ["created_at", "2020-12-13 16:31:13.640156"], ["updated_at", "2020-12-13 16:31:13.640156"]]
+  [1m[36mTRANSACTION (102.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.2ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "McFarland & Company"], ["created_at", "2020-12-13 16:31:13.755032"], ["updated_at", "2020-12-13 16:31:13.755032"]]
+  [1m[36mTRANSACTION (118.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.3ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Book Works"], ["created_at", "2020-12-13 16:31:13.885653"], ["updated_at", "2020-12-13 16:31:13.885653"]]
+  [1m[36mTRANSACTION (96.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.7ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Legend Books"], ["created_at", "2020-12-13 16:31:13.994096"], ["updated_at", "2020-12-13 16:31:13.994096"]]
+  [1m[36mTRANSACTION (110.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (3.2ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Andrews McMeel Publishing"], ["created_at", "2020-12-13 16:31:14.116715"], ["updated_at", "2020-12-13 16:31:14.116715"]]
+  [1m[36mTRANSACTION (101.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.6ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Bella Books"], ["created_at", "2020-12-13 16:31:14.232393"], ["updated_at", "2020-12-13 16:31:14.232393"]]
+  [1m[36mTRANSACTION (93.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.9ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "NavPress"], ["created_at", "2020-12-13 16:31:14.338507"], ["updated_at", "2020-12-13 16:31:14.338507"]]
+  [1m[36mTRANSACTION (98.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.4ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Zondervan"], ["created_at", "2020-12-13 16:31:14.447981"], ["updated_at", "2020-12-13 16:31:14.447981"]]
+  [1m[36mTRANSACTION (122.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (4.2ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Signet Books"], ["created_at", "2020-12-13 16:31:14.582837"], ["updated_at", "2020-12-13 16:31:14.582837"]]
+  [1m[36mTRANSACTION (115.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (2.2ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "O'Reilly Media"], ["created_at", "2020-12-13 16:31:14.716890"], ["updated_at", "2020-12-13 16:31:14.716890"]]
+  [1m[36mTRANSACTION (98.4ms)[0m  [1m[36mcommit transaction[0m
